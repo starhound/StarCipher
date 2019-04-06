@@ -1,13 +1,16 @@
 # StarCipher
 
+import py.pycrypt
 from secretpy import Affine
 from secretpy import Vigenere
 from secretpy import Trifid
 from secretpy import CryptMachine
 from secretpy import Zigzag
+from py.pycrypt import reverse_cipher
 
 SYMBOLS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
-MAX_KEY_SIZE = 26
+MAX_KEY_SIZE = 24
+
 
 def getType():
     while True:
@@ -15,7 +18,7 @@ def getType():
         (1) Ceasar 
         (2) Zig-Zag 
         (3) Trifid
-        (4) XOR
+        (4) Reverse
         (5) Affine
         (6) Viginere
         """)
@@ -27,7 +30,7 @@ def getType():
 
 def getMode():
     while True:
-        print('Do you wish to [e]ncrypt or [d]ecrypt a message?')
+        print('Do you wish to (e)ncrypt or (d)ecrypt a message?')
         mode = input().lower()
         if mode in 'encrypt e decrypt d'.split():
             return mode
@@ -49,6 +52,7 @@ def getKey():
 def hasNumbers(inputString):
     return any(char.isdigit() for char in inputString)
 
+#Some ciphers from secretpy expect string/letter based keys
 def getKeyString():
      while True:
         print('\nEnter the key value (String Form):')
@@ -86,6 +90,7 @@ def ceasarCipher():
     print('\nYour translated text is:')
     print(ceasarTranslatedMessage(mode, message, key))
 
+#Completed
 def zigzagCipher():
     mode = getMode()
     message = getMessage()
@@ -99,6 +104,18 @@ def zigzagCipher():
         enc = cipher.decrypt(message, key, SYMBOLS)
         print('\nYour translated text is:')
         print(enc)
+
+#Complete
+def reverseCipher(): 
+    mode = getMode()
+    message = getMessage()
+    if mode == 'e' or mode == 'encrypt':
+        print('\nYour translated text is:')
+        print(py.pycrypt.reverse_cipher(message))
+    else:
+        print('\nYour translated text is:')
+        print(reverse_cipher(message))
+
 
 #Completed
 def trifidCipher():
@@ -141,8 +158,7 @@ def vigenereCipher():
         enc = cipher.decrypt(message, key, SYMBOLS)
         print(enc)
 
-def main():
-    print("\nWelcome to the StarCipher v1.0")
+def determineType():
     type = getType() 
     if type == '1':
         ceasarCipher()
@@ -151,12 +167,15 @@ def main():
     if type == '3':
         trifidCipher()
     if type == '4': 
-        xorCipher() 
+        reverseCipher() 
     if type == '5': 
         affineCipher()
     if type == '6':
         vigenereCipher()
 
+def main():
+    print("\nWelcome to the StarCipher v1.0")
+    determineType()
     restart = input("\nDo you want to restart the program? (y/n) > ")
     if str(restart) == str("y") or str(restart) == str('yes'):
         print('\nRestarting...')
