@@ -6,7 +6,7 @@ using classic ciphers.
 
 This application was developed using Visual Studio 2019, and I have provided 
 the entire project solution in case someone wants it. All you really need is to 
-run the python file to utilize this application. 
+run the python file (/StarCipher/StarCipher.py) to utilize this application. 
 
 You should not utilize or expect this program to provide any security regarding 
 sensitive data input into it as these ciphers can be easily cracked using brute force attempts.
