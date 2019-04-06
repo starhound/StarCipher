@@ -14,4 +14,4 @@ sensitive data input into it as these ciphers can be easily cracked using brute 
 TODO: Allow input of a text file and convert line by line to an output file. Expand
 cipher types. GUI?
 
-DEPENDENCIES: Python 3.7, secretpy 0.6.1
+DEPENDENCIES: Python 3.7, secretpy 0.6.1, pycrypt-dev 0.1.dev1
