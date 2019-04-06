@@ -14,6 +14,8 @@ sensitive data input into it as these ciphers can be easily cracked using brute 
 You may modify, alter, or share this application without restraint so long as you credit its creator 
 by keeping this readme file available.
 
+http://starhound.com
+
 TODO: Allow input of a text file and convert line by line to an output file. Expand
 cipher types. GUI?
 
