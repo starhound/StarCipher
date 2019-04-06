@@ -1,4 +1,4 @@
-# StarCipher
+# StarCipher (Written and Maintained by Wesley Reid - http://starhound.com) 
 
 import py.pycrypt
 from secretpy import Affine
