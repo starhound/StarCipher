@@ -11,6 +11,9 @@ run the python file to utilize this application.
 You should not utilize or expect this program to provide any security regarding 
 sensitive data input into it as these ciphers can be easily cracked using brute force attempts.
 
+You may modify, alter, or share this application without restraint so long as you credit its creator 
+by keeping this readme file available.
+
 TODO: Allow input of a text file and convert line by line to an output file. Expand
 cipher types. GUI?
 
