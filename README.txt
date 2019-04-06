@@ -1,7 +1,7 @@
 
 Star Cipher v1.0 (April 2019)
 
-This is a simple python program for encrypting/decrypting simple messages 
+This is a simple python program for encrypting/decrypting single messages 
 using classic ciphers. 
 
 This application was developed using Visual Studio 2019, and I have provided 
@@ -16,7 +16,7 @@ by keeping this readme file available.
 
 http://starhound.com
 
-TODO: Allow input of a text file and convert line by line to an output file. Expand
+TODO: Allow input of a text file and convert line by line to an output file. Expand 
 cipher types. GUI?
 
 DEPENDENCIES: Python 3.7, secretpy 0.6.1, pycrypt-dev 0.1.dev1, Pillow 6.0.0,
