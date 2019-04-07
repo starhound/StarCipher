@@ -2,11 +2,11 @@
 
 import py.pycrypt
 from secretpy import Affine
-from secretpy import Vigenere
 from secretpy import Trifid
 from secretpy import CryptMachine
 from secretpy import Zigzag
 from py.pycrypt import reverse_cipher
+from py.pycrypt import rot13_cipher
 
 SYMBOLS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
 MAX_KEY_SIZE = 24
@@ -20,7 +20,7 @@ def getType():
         (3) Trifid
         (4) Reverse
         (5) Affine
-        (6) Viginere
+        (6) Rot13
         """)
         mode = input().lower()
         if mode in 'ceasar 1 reverse 2 rot13 3 xor 4 affine 5 viginere 6'.split():
@@ -145,18 +145,14 @@ def affineCipher():
         print(enc)
 
 #Completed
-def vigenereCipher():
+def rot13Cipher():
     mode = getMode()
-    cipher = Vigenere()
     message = getMessage()
-    key = getKeyString()
     print('\nYour translated text is:')
     if mode == 'e' or mode == 'encrypt':
-        enc = cipher.encrypt(message, key, SYMBOLS)
-        print(enc)
+        print(py.pycrypt.rot13_cipher(message))
     else:
-        enc = cipher.decrypt(message, key, SYMBOLS)
-        print(enc)
+        print(rot13_cipher(message))
 
 def determineType():
     type = getType() 
@@ -171,7 +167,7 @@ def determineType():
     if type == '5': 
         affineCipher()
     if type == '6':
-        vigenereCipher()
+        rot13Cipher()
 
 def main():
     print("\nWelcome to the StarCipher v1.0")
