@@ -1,12 +1,17 @@
 # StarCipher (Written and Maintained by Wesley Reid - http://starhound.com) 
 
 import py.pycrypt
-from secretpy import Affine
+import pyperclip
+import secretpy.cmdecorators as md
+from secretpy import Atbash
 from secretpy import Trifid
 from secretpy import CryptMachine
 from secretpy import Zigzag
+from secretpy import alphabet
 from py.pycrypt import reverse_cipher
 from py.pycrypt import rot13_cipher
+
+out = ''
 
 SYMBOLS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
 MAX_KEY_SIZE = 24
@@ -19,7 +24,7 @@ def getType():
         (2) Zig-Zag 
         (3) Trifid
         (4) Reverse
-        (5) Affine
+        (5) Atbash
         (6) Rot13
         """)
         mode = input().lower()
@@ -88,7 +93,9 @@ def ceasarCipher():
     message = getMessage()
     key = getKey()
     print('\nYour translated text is:')
-    print(ceasarTranslatedMessage(mode, message, key))
+    out = ceasarTranslatedMessage(mode, message, key)
+    print(out)
+    return out
 
 #Completed
 def zigzagCipher():
@@ -96,25 +103,27 @@ def zigzagCipher():
     message = getMessage()
     key = getKey()
     cipher = Zigzag()
+    print('\nYour translated text is:')
     if mode == 'e' or mode == 'encrypt':
-        enc = cipher.encrypt(message, key)
-        print('\nYour translated text is:')
-        print(enc)
+        out = cipher.encrypt(message, key)
+        print(out)
     else:
-        enc = cipher.decrypt(message, key, SYMBOLS)
-        print('\nYour translated text is:')
-        print(enc)
+        out = cipher.decrypt(message, key, SYMBOLS)
+        print(out)
+    return out
 
 #Complete
 def reverseCipher(): 
     mode = getMode()
     message = getMessage()
+    print('\nYour translated text is:')
     if mode == 'e' or mode == 'encrypt':
-        print('\nYour translated text is:')
-        print(py.pycrypt.reverse_cipher(message))
+        out = py.pycrypt.reverse_cipher(message)
+        print(out)
     else:
-        print('\nYour translated text is:')
-        print(reverse_cipher(message))
+        out = reverse_cipher(message)
+        print(out)
+    return out
 
 
 #Completed
@@ -125,49 +134,66 @@ def trifidCipher():
     machine = CryptMachine(Trifid(), key)
     print('\nYour translated text is:')
     if mode == 'e' or mode == 'encrypt':
-        enc = machine.encrypt(message)
-        print(enc)
+        out = machine.encrypt(message)
+        print(out)
     else:
-        enc = machine.decrypt(message)
-        print(enc)
+        out = machine.decrypt(message)
+        print(out)
+    return out
 
 #TODO: key input
-def affineCipher(): 
+def atbashCipher(): 
     mode = getMode()
-    cipher = Affine()
     message = getMessage()
+    cm = CryptMachine(Atbash())
+    cm = md.NoSpaces(md.UpperCase(cm))
     print('\nYour translated text is:')
     if mode == 'e' or mode == 'encrypt':
-        enc = cipher.encrypt(message, [7, 8], SYMBOLS)
-        print(enc)
+        out = cm.encrypt(message)
+        print(out)
     else:
-        enc = cipher.decrypt(message, [7, 8], SYMBOLS)
-        print(enc)
+        out = cm.decrypt(message)
+        print(out)
+    return out
 
 #Completed
 def rot13Cipher():
     mode = getMode()
     message = getMessage()
     print('\nYour translated text is:')
+    out = '' 
     if mode == 'e' or mode == 'encrypt':
-        print(py.pycrypt.rot13_cipher(message))
+        out = py.pycrypt.rot13_cipher(message)
+        print(out)
     else:
-        print(rot13_cipher(message))
+        out = rot13_cipher(message)
+        print(out)
+    return out
+
+def copyPrompt(message):
+    print("\nCopy output to clipboard? (y/n)")
+    mode = input().lower()
+    if mode == 'y' or mode == 'yes':
+        pyperclip.copy(message)
+        spam = pyperclip.paste()
+        print('Text copied to clipboard.')
 
 def determineType():
     type = getType() 
     if type == '1':
-        ceasarCipher()
+        out = ceasarCipher()
     if type == '2':
-        zigzagCipher()
+        out = zigzagCipher()
     if type == '3':
-        trifidCipher()
+        out = trifidCipher()
     if type == '4': 
-        reverseCipher() 
+        out = reverseCipher() 
     if type == '5': 
-        affineCipher()
+        out = atbashCipher()
     if type == '6':
-        rot13Cipher()
+        out = rot13Cipher()
+    if out:
+        copyPrompt(out)
 
 def main():
     print("\nWelcome to the StarCipher v1.0")
