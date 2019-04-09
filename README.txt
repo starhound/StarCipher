@@ -11,7 +11,7 @@ run the python file (/StarCipher/StarCipher.py) to utilize this application.
 You should not utilize or expect this program to provide any security regarding 
 sensitive data input into it as these ciphers can be easily cracked using brute force attempts.
 
-You may modify, alter, or share this application without restraint so long as you credit its creator 
+You may modify, alter, or share this application without restraint but i would request you credit its creator 
 by keeping this readme file available.
 
 http://starhound.com
