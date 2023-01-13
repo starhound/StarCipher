@@ -14,19 +14,17 @@ MAX_KEY_SIZE = 24
 
 def getType():
     while True:
-        print("""\nSelect cipher type: 
+        type = """\nSelect cipher type: 
         (1) Ceasar 
         (2) Zig-Zag 
         (3) Trifid
         (4) Reverse
         (5) Atbash
         (6) Rot13
-        """)
+        """
         mode = input().lower()
-        if mode in 'ceasar 1 reverse 2 rot13 3 xor 4 affine 5 viginere 6'.split():
-            return mode
-        else:
-            print('Please select value 1 through 6 for a cipher type.')
+        type = type.replace('(', ' ').replace(')', ' ').lower()
+        return mode if mode in type.split() else print('Please select value 1 through 6 for a cipher type.')
 
 def getMode():
     while True:
