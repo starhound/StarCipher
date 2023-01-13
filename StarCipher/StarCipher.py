@@ -52,13 +52,10 @@ def getKeyString():
      while True:
         print('\nEnter the key value (String Form):')
         key = input()
-        if hasNumbers(key): 
-            print('\nKey must be a string value.')
-        else:
-            if len(key) > 0:
-                return key
-            else:
-                print("\nPlease enter a key with at least one letter length.")
+        if not hasNumbers(key): 
+            return key if len(key) > 0 else print("\nPlease enter a key with at least one letter length.")
+        else: 
+             print('\nKey must be a string value.')
 
 def ceasarTranslatedMessage(mode, message, key):
     if mode[0] == 'd':
