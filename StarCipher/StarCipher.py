@@ -164,20 +164,17 @@ def copyPrompt(message):
 
 def determineType():
     type = getType() 
-    if type == '1':
-        out = ceasarCipher()
-    if type == '2':
-        out = zigzagCipher()
-    if type == '3':
-        out = trifidCipher()
-    if type == '4': 
-        out = reverseCipher() 
-    if type == '5': 
-        out = atbashCipher()
-    if type == '6':
-        out = rot13Cipher()
-    if out:
-        copyPrompt(out)
+    if type == '1': out = ceasarCipher()
+    if type == '2': out = zigzagCipher()
+    if type == '3': out = trifidCipher()
+    if type == '4':  out = reverseCipher() 
+    if type == '5':  out = atbashCipher()
+    if type == '6': out = rot13Cipher()
+    if type == '7': out = myszkowskiCipher()
+    if type == '8': out = scytaleCipher()
+    if type == '9': out = keywordCipher()
+    if type == '0': out = portaCipher()
+    if out: copyPrompt(out)
 
 def main():
     print("\nWelcome to the StarCipher v1.0")
