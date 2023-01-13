@@ -58,20 +58,17 @@ def getKeyString():
              print('\nKey must be a string value.')
 
 def ceasarTranslatedMessage(mode, message, key):
-    if mode[0] == 'd':
-        key = -key
+    if mode[0] == 'd': key = -key
     translated = ''
     for symbol in message:
         symbolIndex = SYMBOLS.find(symbol)	
-        if symbolIndex == -1: # Symbol not found in SYMBOLS.
-            translated += symbol
-        else:
+        if symbolIndex != -1:
             symbolIndex += key
-            if symbolIndex >= len(SYMBOLS):
-                symbolIndex -= len(SYMBOLS)
-            elif symbolIndex < 0:
-                symbolIndex += len(SYMBOLS)
+            if symbolIndex >= len(SYMBOLS): symbolIndex -= len(SYMBOLS)
+            elif symbolIndex < 0: symbolIndex += len(SYMBOLS)
             translated += SYMBOLS[symbolIndex]
+        else: 
+            translated += symbol
     return translated
 
 #Completed
