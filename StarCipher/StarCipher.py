@@ -30,10 +30,8 @@ def getMode():
     while True:
         print('Do you wish to (e)ncrypt or (d)ecrypt a message?')
         mode = input().lower()
-        if mode in 'encrypt e decrypt d'.split():
-            return mode
-        else:
-            print('Enter either "encrypt" or "e" or "decrypt" or "d".')
+        str = 'Enter either "encrypt" or "e" or "decrypt" or "d".'
+        return mode if mode in 'encrypt e decrypt d'.split() else print(str)
 
 def getMessage():
      print('\nEnter your message:')
