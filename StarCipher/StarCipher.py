@@ -1,15 +1,10 @@
 # StarCipher (Written and Maintained by Wesley Reid - http://starhound.com) 
-
 import py.pycrypt
 import pyperclip
 import secretpy.cmdecorators as md
-from secretpy import Atbash
-from secretpy import Trifid
-from secretpy import CryptMachine
-from secretpy import Zigzag
-from secretpy import alphabet
-from py.pycrypt import reverse_cipher
-from py.pycrypt import rot13_cipher
+from py.pycrypt import reverse_cipher, rot13_cipher
+from secretpy import (Atbash, CryptMachine, MyszkowskiTransposition, Trifid,
+                      Zigzag, Scytale, Keyword, Porta, alphabet)
 
 out = ''
 
