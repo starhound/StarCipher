@@ -115,13 +115,13 @@ def trifidCipher():
     mode = getMode()
     message = getMessage()
     key = getKey()
-    machine = CryptMachine(Trifid(), key)
+    cipher = CryptMachine(Trifid(), key)
     print('\nYour translated text is:')
     if mode == 'e' or mode == 'encrypt':
-        out = machine.encrypt(message)
+        out = cipher.encrypt(message)
         print(out)
     else:
-        out = machine.decrypt(message)
+        out = cipher.decrypt(message)
         print(out)
     return out
 
@@ -129,14 +129,14 @@ def trifidCipher():
 def atbashCipher(): 
     mode = getMode()
     message = getMessage()
-    cm = CryptMachine(Atbash())
-    cm = md.NoSpaces(md.UpperCase(cm))
+    cipher = CryptMachine(Atbash())
+    cipher = md.NoSpaces(md.UpperCase(cm))
     print('\nYour translated text is:')
     if mode == 'e' or mode == 'encrypt':
-        out = cm.encrypt(message)
+        out = cipher.encrypt(message)
         print(out)
     else:
-        out = cm.decrypt(message)
+        out = cipher.decrypt(message)
         print(out)
     return out
 
