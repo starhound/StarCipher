@@ -42,8 +42,7 @@ def getKey():
      while True:
         print('\nEnter the key number (1-%s)' % (MAX_KEY_SIZE))
         key = int(input())
-        if (key >= 1 and key <= MAX_KEY_SIZE):
-           return key
+        if (key >= 1 and key <= MAX_KEY_SIZE): return key
 
 def hasNumbers(inputString):
     return any(char.isdigit() for char in inputString)
