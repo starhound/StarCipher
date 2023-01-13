@@ -57,6 +57,8 @@ def getKeyString():
         else: 
              print('\nKey must be a string value.')
 
+           
+
 def ceasarTranslatedMessage(mode, message, key):
     if mode[0] == 'd': key = -key
     translated = ''
@@ -86,16 +88,19 @@ def zigzagCipher():
     mode = getMode()
     message = getMessage()
     key = getKey()
-    cipher = Zigzag()
-    print('\nYour translated text is:')
-    if mode == 'e' or mode == 'encrypt':
-        out = cipher.encrypt(message, key)
-        print(out)
-    else:
-        out = cipher.decrypt(message, key, SYMBOLS)
-        print(out)
+    cipher = CryptMachine(Zigzag(), key)
+    executeMode(cipher, message)
     return out
 
+def executeMode(cipher, message):
+    print('\nYour translated text is:')
+    if mode == 'e' or mode == 'encrypt':
+        out = cipher.encrypt(message)
+    else:
+        out = cipher.decrypt(message)
+    print(out)
+    return out
+  
 #Complete
 def reverseCipher(): 
     mode = getMode()
@@ -109,20 +114,13 @@ def reverseCipher():
         print(out)
     return out
 
-
 #Completed
 def trifidCipher():
     mode = getMode()
     message = getMessage()
     key = getKey()
     cipher = CryptMachine(Trifid(), key)
-    print('\nYour translated text is:')
-    if mode == 'e' or mode == 'encrypt':
-        out = cipher.encrypt(message)
-        print(out)
-    else:
-        out = cipher.decrypt(message)
-        print(out)
+    executeMode(cipher, message)
     return out
 
 #TODO: key input
@@ -131,13 +129,7 @@ def atbashCipher():
     message = getMessage()
     cipher = CryptMachine(Atbash())
     cipher = md.NoSpaces(md.UpperCase(cm))
-    print('\nYour translated text is:')
-    if mode == 'e' or mode == 'encrypt':
-        out = cipher.encrypt(message)
-        print(out)
-    else:
-        out = cipher.decrypt(message)
-        print(out)
+    executeMode(cipher, message)
     return out
 
 #Completed
