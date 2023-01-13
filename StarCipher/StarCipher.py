@@ -7,10 +7,8 @@ from secretpy import (Atbash, CryptMachine, MyszkowskiTransposition, Trifid,
                       Zigzag, Scytale, Keyword, Porta, alphabet)
 
 out = ''
-
 SYMBOLS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
 MAX_KEY_SIZE = 24
-
 
 def getType():
     while True:
@@ -56,9 +54,7 @@ def getKeyString():
             return key if len(key) > 0 else print("\nPlease enter a key with at least one letter length.")
         else: 
              print('\nKey must be a string value.')
-
-           
-
+       
 def ceasarTranslatedMessage(mode, message, key):
     if mode[0] == 'd': key = -key
     translated = ''
@@ -92,6 +88,7 @@ def zigzagCipher():
     executeMode(cipher, message)
     return out
 
+# only for ciphers from secretpy
 def executeMode(cipher, message):
     print('\nYour translated text is:')
     if mode == 'e' or mode == 'encrypt':
@@ -128,7 +125,7 @@ def atbashCipher():
     mode = getMode()
     message = getMessage()
     cipher = CryptMachine(Atbash())
-    cipher = md.NoSpaces(md.UpperCase(cm))
+    cipher = md.NoSpaces(md.UpperCase(cipher))
     executeMode(cipher, message)
     return out
 
