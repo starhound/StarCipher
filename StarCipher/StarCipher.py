@@ -217,6 +217,14 @@ def portaCipher():
     cipher =  CryptMachine(Porta(), key)
     executeModeSecretPy(cipher, message)
     return out
+  
+def scytaleCipher():
+    mode = getMode()
+    message = getMessage()
+    key = getKey()
+    cipher =  CryptMachine(Scytale(), key)
+    executeModeSecretPy(cipher, message)
+    return out
 # -------------------------------------------------------------------------
 
 # ----- EXECUTE -----------------------------------------------------------      
