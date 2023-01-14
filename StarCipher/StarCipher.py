@@ -186,12 +186,19 @@ def trifidCipher():
     executeModeSecretPy(cipher, message)
     return out
 
-#TODO: key input
 def atbashCipher(): 
     mode = getMode()
     message = getMessage()
     cipher = CryptMachine(Atbash())
     cipher = md.NoSpaces(md.UpperCase(cipher))
+    executeModeSecretPy(cipher, message)
+    return out
+
+def myszkowskiCipher():
+    mode = getMode()
+    message = getMessage()
+    key = getKeyString()
+    cipher =  CryptMachine(MyszkowskiTransposition(), key)
     executeModeSecretPy(cipher, message)
     return out
 # -------------------------------------------------------------------------
