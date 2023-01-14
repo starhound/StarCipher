@@ -209,6 +209,14 @@ def keywordCipher():
     cipher =  CryptMachine(Keyword(), key)
     executeModeSecretPy(cipher, message)
     return out
+  
+def portaCipher():
+    mode = getMode()
+    message = getMessage()
+    key = getKeyString()
+    cipher =  CryptMachine(Porta(), key)
+    executeModeSecretPy(cipher, message)
+    return out
 # -------------------------------------------------------------------------
 
 # ----- EXECUTE -----------------------------------------------------------      
