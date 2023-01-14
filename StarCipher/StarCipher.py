@@ -37,6 +37,10 @@ def getType():
         (4) Reverse
         (5) Atbash
         (6) Rot13
+        (7) Myszkowski
+        (8) Scytale
+        (9) Keyword
+        (0) Porta
         """
         mode = input().lower()
         type = type.replace('(', ' ').replace(')', ' ').lower()
@@ -182,12 +186,43 @@ def trifidCipher():
     executeModeSecretPy(cipher, message)
     return out
 
-#TODO: key input
 def atbashCipher(): 
     mode = getMode()
     message = getMessage()
     cipher = CryptMachine(Atbash())
     cipher = md.NoSpaces(md.UpperCase(cipher))
+    executeModeSecretPy(cipher, message)
+    return out
+
+def myszkowskiCipher():
+    mode = getMode()
+    message = getMessage()
+    key = getKeyString()
+    cipher =  CryptMachine(MyszkowskiTransposition(), key)
+    executeModeSecretPy(cipher, message)
+    return out
+  
+def keywordCipher():
+    mode = getMode()
+    message = getMessage()
+    key = getKeyString()
+    cipher =  CryptMachine(Keyword(), key)
+    executeModeSecretPy(cipher, message)
+    return out
+  
+def portaCipher():
+    mode = getMode()
+    message = getMessage()
+    key = getKeyString()
+    cipher =  CryptMachine(Porta(), key)
+    executeModeSecretPy(cipher, message)
+    return out
+  
+def scytaleCipher():
+    mode = getMode()
+    message = getMessage()
+    key = getKey()
+    cipher =  CryptMachine(Scytale(), key)
     executeModeSecretPy(cipher, message)
     return out
 # -------------------------------------------------------------------------
