@@ -201,6 +201,14 @@ def myszkowskiCipher():
     cipher =  CryptMachine(MyszkowskiTransposition(), key)
     executeModeSecretPy(cipher, message)
     return out
+  
+def keywordCipher():
+    mode = getMode()
+    message = getMessage()
+    key = getKeyString()
+    cipher =  CryptMachine(Keyword(), key)
+    executeModeSecretPy(cipher, message)
+    return out
 # -------------------------------------------------------------------------
 
 # ----- EXECUTE -----------------------------------------------------------      
