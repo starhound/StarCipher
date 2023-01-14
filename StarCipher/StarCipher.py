@@ -37,6 +37,10 @@ def getType():
         (4) Reverse
         (5) Atbash
         (6) Rot13
+        (7) Myszkowski
+        (8) Scytale
+        (9) Keyword
+        (0) Porta
         """
         mode = input().lower()
         type = type.replace('(', ' ').replace(')', ' ').lower()
