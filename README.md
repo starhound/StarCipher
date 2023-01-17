@@ -1,5 +1,5 @@
 
-# Star Cipher v1.0 (April 2019)
+# Star Cipher v1.0
 
 ## Description
 This is a simple python program for encrypting/decrypting single messages 
