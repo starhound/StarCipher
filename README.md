@@ -33,6 +33,6 @@ cipher types. GUI?
 
 ## Credits 
 ### Author & Creator: [@starhound](https://github.com/starhound)   http://starhound.com
-
+### Contributer: [@watson_clara](https://github.com/watson-clara)
 
 
